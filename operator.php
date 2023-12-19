@@ -4,10 +4,10 @@ function fibo($n){
 	$n = (int)$n;
 	$count = 2;
 	
-	$elementZero = 1; 
-	$elementFirst = 1;
+	$elementOne = 0; 
+	$elementTwo = 1;
 	
-	$sequence = $elementZero. " ".$elementFirst;
+	$sequence = $elementOne. " ".$elementTwo;
 	
 	if($n == 0 ){
 		return $n;		
@@ -15,10 +15,10 @@ function fibo($n){
 		return $sequence;
 	}elseif($n >= 1){
 		while($count <= $n){
-			$nextElement = $elementZero + $elementFirst;
+			$nextElement = $elementOne + $elementTwo;
 			$sequence .= " $nextElement";
-			$elementZero = $elementFirst;
-			$elementFirst = $nextElement;
+			$elementOne = $elementTwo;
+			$elementTwo = $nextElement;
 			++$count;
 		}
 		return 	$sequence;
@@ -27,5 +27,5 @@ function fibo($n){
 	}	
 	
 }
-var_dump(fibo(32));
+var_dump(fibo(33));
 
