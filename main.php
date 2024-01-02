@@ -10,22 +10,28 @@
 </head>
 <body style="background-color: silver;">
     <div class="container" style="display:flex;justify-content:center;padding:15rem 10rem;margin-top:10rem;;background-color:white;box-sizing:border-box;border-radius:10px;">
-        
+      
         <form method="POST">
             <h1 style="text-align:center;">
                 Логін
             </h1>
             <hr>
-            <span class="success">
-                Ви спробували залогінитись під емейлом:<br> <?= $_POST['email']?>
-            </span>
+            <?php var_dump($_POST) ?>
+            <?php if (!empty($_POST)) : ?>
+                <div class="alert alert-success" role="alert">
+                    Ви спробували залогінитись під емейлом: <?= $_POST['email'];?>
+                </div>
+                <?php elseif(isset($_POST)) : ?>   
+                    <div class="alert alert-danger" role="alert">
+                    Пусто!
+                </div>
+            <?php endif; ?>
             <div class="mb-3">
                 <label for="email" class="form-label">Email address</label>
-                <input type="email" name="email" class="form-control">
-                <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+                <input type="email" name="email" class="form-control" required>
             </div>
             <div class="mb-3">
-                <label for="exampleInputPassword1" class="form-label">Password</label>
+                <label for="exampleInputPassword1" class="form-label" required>Password</label>
                 <input type="password" name="password" class="form-control">
             </div>
             <button type="submit" class="btn btn-primary">Submit</button>
