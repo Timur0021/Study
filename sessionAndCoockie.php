@@ -34,9 +34,8 @@ session_start();
                 <div class="alert alert-success" role="alert">
                     Ви спробували залогінитись під емейлом: <?= $_POST['email'];?>
                 </div>
-            <?php } ?>
             <?php
-            if (![$_SESSION['is_auth'] ?? false]):
+             } 
             ?>
             <div class="mb-3">
                 <label for="email" class="form-label">Email address</label>
@@ -48,43 +47,24 @@ session_start();
                 <input type="password" name="password" class="form-control">
             </div>
             <button type="submit" class="btn btn-primary">Submit</button>
+            <?=
+                $password = $_POST['password'];
+                $email = $_POST['email'];
+                $info = $email . $password; 
+                if (!empty($_POST)) {
+                $rid = fopen('document.txt','a+') or die('Bad');
+                fwrite($rid, $info . PHP_EOL);
+                fclose($rid);
+                }
+            ?>
         </form>
-        <?php
-            else:
-        ?>
         <h1>You registred:
         <span style="background-color: gray;color: #fff;">
             <?=
             $_SESSION['user'][$_SESSION['is_auth']]['email'];
             ?>
         </span>
-        <a href="logout.php">Log out</a>
         </h1>
-
-        <form method="POST">
-            <hr> 
-            <?php 
-            var_dump($_SESSION);
-            ?>
-            
-                <div class="alert alert-success" role="alert">
-                    Ви спробували залогінитись під емейлом: <?= $_POST['email'];?>
-                </div>
-          
-            <div class="mb-3">
-                <label for="email" class="form-label">Email address</label>
-                <input type="email" name="email" class="form-control">
-                <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
-            </div>
-            <div class="mb-3">
-                <label for="exampleInputPassword1" class="form-label">Password</label>
-                <input type="password" name="password" class="form-control">
-            </div>
-            <button type="submit" class="btn btn-primary">Submit</button>
-        </form>
-        <?php
-            endif; 
-        ?>
     </div>
 </body>
 </html>
