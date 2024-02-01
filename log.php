@@ -42,13 +42,14 @@ include ('src/users.php');
 
         <div class="w-100"></div>
         <div class="mb-3 col-12 col-md-4">
-            <button type="submit" class="btn btn-info" name="button-log">Увійти</button>
+            <button id="button" type="submit" class="btn btn-info" name="button-log">Увійти</button>
             <a href="reg.php">Регатись</a>
+            <main></main>
         </div>
     </form>
 </div>
 <!-- END FORM -->
-
+<script src="admin/scripts/index.js"></script>
 
 <!-- Optional JavaScript: choose one of the two -->
 
