@@ -109,10 +109,10 @@ class Battle {
     }
 }
 
-// Створення героїв і зброї
+
 $warrior = new Hero("Воїн", 100, new Weapon("Меч"));
 $mage = new Hero("Маг", 80, new Weapon("Магічний посох"));
 
-// Початок битви
+
 $battle = new Battle($warrior, $mage);
 $battle->fight();
